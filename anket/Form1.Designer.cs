@@ -19,8 +19,8 @@ partial class Form1
     private void InitializeComponent()
     {
         form = new Label();
-        ad = new Label();
-        soyad = new Label();
+        name = new Label();
+        surname = new Label();
         email = new Label();
         number = new Label();
         birthdate = new Label();
@@ -31,7 +31,7 @@ partial class Form1
         textBox4 = new TextBox();
         change = new Button();
         add = new Button();
-        textBox7 = new TextBox();
+        filename = new TextBox();
         load = new Button();
         save = new Button();
         dateTimePicker1 = new DateTimePicker();
@@ -41,31 +41,31 @@ partial class Form1
         // 
         form.AutoSize = true;
         form.Font = new Font("Segoe UI Black", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-        form.Location = new Point(31, 9);
+        form.Location = new Point(31, 23);
         form.Name = "form";
         form.Size = new Size(94, 31);
         form.TabIndex = 0;
         form.Text = "Formm";
         // 
-        // ad
+        // name
         // 
-        ad.AutoSize = true;
-        ad.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic, GraphicsUnit.Point);
-        ad.Location = new Point(31, 62);
-        ad.Name = "ad";
-        ad.Size = new Size(30, 23);
-        ad.TabIndex = 1;
-        ad.Text = "Ad";
+        name.AutoSize = true;
+        name.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic, GraphicsUnit.Point);
+        name.Location = new Point(31, 62);
+        name.Name = "name";
+        name.Size = new Size(55, 23);
+        name.TabIndex = 1;
+        name.Text = "Name";
         // 
-        // soyad
+        // surname
         // 
-        soyad.AutoSize = true;
-        soyad.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic, GraphicsUnit.Point);
-        soyad.Location = new Point(31, 102);
-        soyad.Name = "soyad";
-        soyad.Size = new Size(53, 23);
-        soyad.TabIndex = 2;
-        soyad.Text = "Soyad";
+        surname.AutoSize = true;
+        surname.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic, GraphicsUnit.Point);
+        surname.Location = new Point(31, 102);
+        surname.Name = "surname";
+        surname.Size = new Size(75, 23);
+        surname.TabIndex = 2;
+        surname.Text = "Surname";
         // 
         // email
         // 
@@ -91,7 +91,7 @@ partial class Form1
         // 
         birthdate.AutoSize = true;
         birthdate.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic, GraphicsUnit.Point);
-        birthdate.Location = new Point(31, 248);
+        birthdate.Location = new Point(31, 243);
         birthdate.Name = "birthdate";
         birthdate.Size = new Size(77, 23);
         birthdate.TabIndex = 5;
@@ -105,17 +105,18 @@ partial class Form1
         listBox1.Name = "listBox1";
         listBox1.Size = new Size(283, 344);
         listBox1.TabIndex = 6;
+        listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
         // 
         // textBox1
         // 
-        textBox1.Location = new Point(142, 55);
+        textBox1.Location = new Point(142, 66);
         textBox1.Name = "textBox1";
         textBox1.Size = new Size(125, 27);
         textBox1.TabIndex = 7;
         // 
         // textBox2
         // 
-        textBox2.Location = new Point(142, 99);
+        textBox2.Location = new Point(142, 102);
         textBox2.Name = "textBox2";
         textBox2.Size = new Size(125, 27);
         textBox2.TabIndex = 8;
@@ -129,14 +130,14 @@ partial class Form1
         // 
         // textBox4
         // 
-        textBox4.Location = new Point(142, 197);
+        textBox4.Location = new Point(142, 193);
         textBox4.Name = "textBox4";
         textBox4.Size = new Size(125, 27);
         textBox4.TabIndex = 10;
         // 
         // change
         // 
-        change.Location = new Point(322, 321);
+        change.Location = new Point(258, 336);
         change.Name = "change";
         change.Size = new Size(94, 29);
         change.TabIndex = 12;
@@ -146,7 +147,7 @@ partial class Form1
         // 
         // add
         // 
-        add.Location = new Point(322, 366);
+        add.Location = new Point(258, 373);
         add.Name = "add";
         add.Size = new Size(94, 29);
         add.TabIndex = 14;
@@ -154,13 +155,13 @@ partial class Form1
         add.UseVisualStyleBackColor = true;
         add.Click += add_Click;
         // 
-        // textBox7
+        // filename
         // 
-        textBox7.Location = new Point(477, 373);
-        textBox7.Name = "textBox7";
-        textBox7.Size = new Size(283, 27);
-        textBox7.TabIndex = 15;
-        textBox7.Text = "Filename";
+        filename.Location = new Point(477, 376);
+        filename.Name = "filename";
+        filename.PlaceholderText = "Filename";
+        filename.Size = new Size(283, 27);
+        filename.TabIndex = 15;
         // 
         // load
         // 
@@ -186,7 +187,7 @@ partial class Form1
         // 
         dateTimePicker1.Font = new Font("Segoe UI", 10.2F, FontStyle.Italic, GraphicsUnit.Point);
         dateTimePicker1.Format = DateTimePickerFormat.Short;
-        dateTimePicker1.Location = new Point(132, 243);
+        dateTimePicker1.Location = new Point(132, 237);
         dateTimePicker1.Name = "dateTimePicker1";
         dateTimePicker1.Size = new Size(135, 30);
         dateTimePicker1.TabIndex = 18;
@@ -199,7 +200,7 @@ partial class Form1
         Controls.Add(dateTimePicker1);
         Controls.Add(save);
         Controls.Add(load);
-        Controls.Add(textBox7);
+        Controls.Add(filename);
         Controls.Add(add);
         Controls.Add(change);
         Controls.Add(textBox4);
@@ -210,8 +211,8 @@ partial class Form1
         Controls.Add(birthdate);
         Controls.Add(number);
         Controls.Add(email);
-        Controls.Add(soyad);
-        Controls.Add(ad);
+        Controls.Add(surname);
+        Controls.Add(name);
         Controls.Add(form);
         Name = "Form1";
         Text = "Form1";
@@ -222,8 +223,8 @@ partial class Form1
     #endregion
 
     private Label form;
-    private Label ad;
-    private Label soyad;
+    private Label name;
+    private Label surname;
     private Label email;
     private Label number;
     private Label birthdate;
@@ -234,7 +235,7 @@ partial class Form1
     private TextBox textBox4;
     private Button change;
     private Button add;
-    private TextBox textBox7;
+    private TextBox filename;
     private Button load;
     private Button save;
     private DateTimePicker dateTimePicker1;
